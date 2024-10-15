@@ -1,12 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:developer';
-
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
 import 'package:finan_control/app/core/ui/text_styles.dart';
 import 'package:finan_control/app/core/ui/theme_config.dart';
-
 import '../../core/widgets/multi_text_button.dart';
 import '../../core/widgets/primary_button.dart';
 
@@ -24,7 +18,6 @@ class OnboardPage extends StatelessWidget {
               height: 48.0,
             ),
             Expanded(
-              flex: 2,
               child: Image.asset(
                 'assets/images/man.png',
               ),
