@@ -1,12 +1,14 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-// import 'dart:developer';
+import 'dart:developer';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:finan_control/app/core/ui/text_styles.dart';
 import 'package:finan_control/app/core/ui/theme_config.dart';
 
-import '../../core/widgets/primaryButton.dart';
+import '../../core/widgets/multi_text_button.dart';
+import '../../core/widgets/primary_button.dart';
 
 class OnboardPage extends StatelessWidget {
   const OnboardPage({super.key});
@@ -44,24 +46,35 @@ class OnboardPage extends StatelessWidget {
                   .copyWith(color: ThemeConfig.greenlightTwo),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 32.0,
-                vertical: 16.0,
+              padding: const EdgeInsets.only(
+                left: 32.0,
+                right: 32.0,
+                top: 16.0,
+                bottom: 4.0,
               ),
               child: PrimaryButton(
                 text: 'Começar',
                 onPressed: () {},
               ),
             ),
-            Text(
-              'Already have account? Log in',
-              style: TextStyles.smallText.copyWith(
-                color: ThemeConfig.grey,
-              ),
+            MultiTextButton(
+              onPressed: () {},
+              children: [
+                Text(
+                  'Ainda não possui uma conta? ',
+                  style: TextStyles.smallText.copyWith(
+                    color: ThemeConfig.grey,
+                  ),
+                ),
+                Text(
+                  'Criar conta',
+                  style: TextStyles.smallText.copyWith(
+                    color: ThemeConfig.greenlightTwo,
+                  ),
+                ),
+              ],
             ),
-            SizedBox(
-              height: 24,
-            ),
+            SizedBox(height: 24.0),
           ],
         ),
       ),
