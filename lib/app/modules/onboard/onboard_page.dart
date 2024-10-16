@@ -27,16 +27,16 @@ class OnboardPage extends StatelessWidget {
             ),
             Text(
               'MyFinanApp',
-              style: TextStyles.mediumText
-                  .copyWith(color: ThemeConfig.greenlightTwo),
+              style:
+                  TextStyles.mediumText.copyWith(color: ThemeConfig.greenTwo),
             ),
             SizedBox(
               height: 20,
             ),
             Text(
               'Seu App de Controle Financeiro!',
-              style: TextStyles.mediumText18
-                  .copyWith(color: ThemeConfig.greenlightTwo),
+              style:
+                  TextStyles.mediumText18.copyWith(color: ThemeConfig.greenTwo),
             ),
             Padding(
               padding: const EdgeInsets.only(
@@ -62,7 +62,7 @@ class OnboardPage extends StatelessWidget {
                 Text(
                   'Criar conta',
                   style: TextStyles.smallText.copyWith(
-                    color: ThemeConfig.greenlightTwo,
+                    color: ThemeConfig.greenTwo,
                   ),
                 ),
               ],

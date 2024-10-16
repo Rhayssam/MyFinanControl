@@ -28,4 +28,14 @@ class TextStyles {
     fontSize: 14.0,
     fontWeight: FontWeight.w400,
   );
+  static const TextStyle inputText = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 14.0,
+    fontWeight: FontWeight.w500,
+  );
+  static const TextStyle inputHintText = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 12.0,
+    fontWeight: FontWeight.w400,
+  );
 }

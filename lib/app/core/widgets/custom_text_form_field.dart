@@ -1,4 +1,6 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../ui/text_styles.dart';
 import '../ui/theme_config.dart';
@@ -12,6 +14,9 @@ class CustomTextFormField extends StatefulWidget {
   final TextInputType? keyboardType;
   final int? maxLenght;
   final TextInputAction? textInputAction;
+  final Widget? suffixIcon;
+  final bool? obscureText;
+  final List<TextInputFormatter>? inputFormatters;
 
   const CustomTextFormField({
     Key? key,
@@ -23,6 +28,9 @@ class CustomTextFormField extends StatefulWidget {
     this.keyboardType,
     this.maxLenght,
     this.textInputAction,
+    this.suffixIcon,
+    this.obscureText,
+    this.inputFormatters,
   }) : super(key: key);
 
   @override
@@ -30,8 +38,8 @@ class CustomTextFormField extends StatefulWidget {
 }
 
 class _CustomTextFormFieldState extends State<CustomTextFormField> {
-  final defaultBorder = OutlineInputBorder(
-      borderSide: BorderSide(color: ThemeConfig.greenlightTwo));
+  final defaultBorder =
+      OutlineInputBorder(borderSide: BorderSide(color: ThemeConfig.greenTwo));
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +50,9 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             vertical: 12.0,
           ),
       child: TextFormField(
+        style: TextStyles.inputText.copyWith(color: ThemeConfig.greenOne),
+        inputFormatters: widget.inputFormatters,
+        obscureText: widget.obscureText ?? false,
         textInputAction: widget.textInputAction,
         maxLength: widget.maxLenght,
         keyboardType: widget.keyboardType,
@@ -49,6 +60,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         textCapitalization:
             widget.textCapitalization ?? TextCapitalization.none,
         decoration: InputDecoration(
+          suffixIcon: widget.suffixIcon,
           hintText: widget.hintText,
           floatingLabelBehavior: FloatingLabelBehavior.always,
           labelText: widget.labelText?.toUpperCase(),

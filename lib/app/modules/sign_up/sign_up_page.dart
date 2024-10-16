@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:finan_control/app/core/utils/uppercase_text_formatter.dart';
+import 'package:finan_control/app/core/widgets/password_form_field.dart';
 import 'package:flutter/material.dart';
-
 import '../../core/ui/text_styles.dart';
 import '../../core/ui/theme_config.dart';
 import '../../core/widgets/custom_text_form_field.dart';
@@ -19,7 +20,7 @@ class SignUpPage extends StatelessWidget {
             'MyFinanApp',
             textAlign: TextAlign.center,
             style: TextStyles.mediumText.copyWith(
-              color: ThemeConfig.greenlightTwo,
+              color: ThemeConfig.greenTwo,
             ),
           ),
           SizedBox(
@@ -29,18 +30,34 @@ class SignUpPage extends StatelessWidget {
             'Seu App de Controle Financeiro!',
             textAlign: TextAlign.center,
             style: TextStyles.mediumText18.copyWith(
-              color: ThemeConfig.greenlightTwo,
+              color: ThemeConfig.greenTwo,
             ),
           ),
           Image.asset(
             'assets/images/sign_up.png',
+            height: 180,
+            width: 415,
           ),
           Form(
             child: Column(
               children: [
                 CustomTextFormField(
-                  labelText: 'Seu nome',
-                  hintText: 'email@email.com',
+                  labelText: 'your name',
+                  hintText: 'YOUR NAME',
+                  inputFormatters: [UppercaseTextInputFormatter()],
+                ),
+                CustomTextFormField(
+                  labelText: 'your email',
+                  hintText: 'YOUR EMAIL',
+                  inputFormatters: [UppercaseTextInputFormatter()],
+                ),
+                PasswordFormField(
+                  labelText: 'password',
+                  hintText: '******',
+                ),
+                PasswordFormField(
+                  labelText: 'confirm your password',
+                  hintText: '******',
                 ),
               ],
             ),
@@ -69,7 +86,7 @@ class SignUpPage extends StatelessWidget {
               Text(
                 'Entrar',
                 style: TextStyles.smallText.copyWith(
-                  color: ThemeConfig.greenlightTwo,
+                  color: ThemeConfig.greenTwo,
                 ),
               ),
             ],
