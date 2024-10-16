@@ -1,6 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:developer';
+
+import 'package:finan_control/app/core/ui/theme_config.dart';
 import 'package:flutter/material.dart';
+
 import 'package:finan_control/app/core/widgets/custom_text_form_field.dart';
 
 class PasswordFormField extends StatefulWidget {
@@ -8,6 +11,8 @@ class PasswordFormField extends StatefulWidget {
   final EdgeInsetsGeometry? padding;
   final String? hintText;
   final String? labelText;
+  final FormFieldValidator<String>? validator;
+  final String? helperText;
 
   const PasswordFormField({
     Key? key,
@@ -15,6 +20,8 @@ class PasswordFormField extends StatefulWidget {
     this.padding,
     this.hintText,
     this.labelText,
+    this.validator,
+    this.helperText,
   }) : super(key: key);
 
   @override
@@ -27,6 +34,8 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
   @override
   Widget build(BuildContext context) {
     return CustomTextFormField(
+      helperText: widget.helperText,
+      validator: widget.validator,
       obscureText: isHidden,
       controller: widget.controller,
       padding: widget.padding,
@@ -40,7 +49,10 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
             isHidden = !isHidden;
           });
         },
-        child: Icon(isHidden ? Icons.visibility : Icons.visibility_off),
+        child: Icon(
+          isHidden ? Icons.visibility : Icons.visibility_off,
+          color: ThemeConfig.greenTwo,
+        ),
       ),
     );
   }
