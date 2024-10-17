@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:finan_control/app/core/utils/uppercase_text_formatter.dart';
+import 'package:finan_control/app/core/utils/validator.dart';
 import 'package:finan_control/app/core/widgets/password_form_field.dart';
 import 'package:flutter/material.dart';
 import '../../core/ui/text_styles.dart';
@@ -18,6 +19,7 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -56,44 +58,26 @@ class _SignUpPageState extends State<SignUpPage> {
                   inputFormatters: [
                     UppercaseTextInputFormatter(),
                   ],
-                  validator: (value) {
-                    if (value != null && value.isEmpty) {
-                      return 'esse campo não pode ser vazio';
-                    }
-                    return null;
-                  },
+                  validator: Validator.validateName,
                 ),
                 CustomTextFormField(
                   labelText: 'your email',
                   hintText: 'YOUR EMAIL',
-                  validator: (value) {
-                    if (value != null && value.isEmpty) {
-                      return 'esse campo não pode ser vazio';
-                    }
-                    return null;
-                  },
+                  validator: Validator.validateEmail,
                 ),
                 PasswordFormField(
+                  controller: _passwordController,
                   labelText: 'password',
                   hintText: '******',
-                  validator: (value) {
-                    if (value != null && value.isEmpty) {
-                      return 'esse campo não pode ser vazio';
-                    }
-                    return null;
-                  },
+                  validator: Validator.validatePassword,
                   helperText:
                       'Deve ter pelo menos 8 caracteres, 1 letra maiúscula e 1 número.',
                 ),
                 PasswordFormField(
                   labelText: 'confirm your password',
                   hintText: '******',
-                  validator: (value) {
-                    if (value != null && value.isEmpty) {
-                      return 'esse campo não pode ser vazio';
-                    }
-                    return null;
-                  },
+                  validator: (value) => Validator.validateConfirmPassword(
+                      value, _passwordController.text),
                 ),
               ],
             ),
