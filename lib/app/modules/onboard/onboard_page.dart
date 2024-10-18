@@ -1,3 +1,5 @@
+import 'package:finan_control/app/core/constants/routes.dart';
+import 'package:finan_control/app/modules/sign_up/sign_up_page.dart';
 import 'package:flutter/material.dart';
 import 'package:finan_control/app/core/ui/text_styles.dart';
 import 'package:finan_control/app/core/ui/theme_config.dart';
@@ -47,7 +49,12 @@ class OnboardPage extends StatelessWidget {
               ),
               child: PrimaryButton(
                 text: 'Começar',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    NamedRoutes.signUp,
+                  );
+                },
               ),
             ),
             MultiTextButton(
