@@ -5,6 +5,7 @@ import 'package:finan_control/app/modules/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 
 import 'core/constants/routes.dart';
+import 'modules/sign_in/sign_in_page.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -19,6 +20,7 @@ class AppWidget extends StatelessWidget {
         NamedRoutes.initial: (context) => OnboardPage(),
         NamedRoutes.splash: (context) => SplashPage(),
         NamedRoutes.signUp: (context) => SignUpPage(),
+        NamedRoutes.signIn: (context) => SignInPage(),
       },
     );
   }

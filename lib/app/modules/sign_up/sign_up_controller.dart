@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:finan_control/app/modules/sign_up/sign_up_state.dart';
 import 'package:finan_control/app/services/auth_service.dart';
 import 'package:flutter/foundation.dart';

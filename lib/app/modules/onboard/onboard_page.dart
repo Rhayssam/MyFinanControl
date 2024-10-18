@@ -1,5 +1,4 @@
 import 'package:finan_control/app/core/constants/routes.dart';
-import 'package:finan_control/app/modules/sign_up/sign_up_page.dart';
 import 'package:flutter/material.dart';
 import 'package:finan_control/app/core/ui/text_styles.dart';
 import 'package:finan_control/app/core/ui/theme_config.dart';
@@ -52,13 +51,13 @@ class OnboardPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(
                     context,
-                    NamedRoutes.signUp,
+                    NamedRoutes.signIn,
                   );
                 },
               ),
             ),
             MultiTextButton(
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(context, NamedRoutes.signUp),
               children: [
                 Text(
                   'Ainda não possui uma conta? ',

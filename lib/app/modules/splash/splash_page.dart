@@ -4,7 +4,6 @@ import 'package:finan_control/app/core/constants/routes.dart';
 import 'package:finan_control/app/core/ui/text_styles.dart';
 import 'package:finan_control/app/core/ui/theme_config.dart';
 import 'package:finan_control/app/core/widgets/custom_circular_progress_indicator.dart';
-import 'package:finan_control/app/modules/onboard/onboard_page.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
