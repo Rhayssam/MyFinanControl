@@ -3,9 +3,13 @@ import 'dart:developer';
 import 'package:finan_control/app/core/utils/uppercase_text_formatter.dart';
 import 'package:finan_control/app/core/utils/validator.dart';
 import 'package:finan_control/app/core/widgets/password_form_field.dart';
+import 'package:finan_control/app/modules/sign_up/sign_up_controller.dart';
+import 'package:finan_control/app/modules/sign_up/sign_up_state.dart';
 import 'package:flutter/material.dart';
 import '../../core/ui/text_styles.dart';
 import '../../core/ui/theme_config.dart';
+import '../../core/widgets/custom_bottom_sheet.dart';
+import '../../core/widgets/custom_circular_progress_indicator.dart';
 import '../../core/widgets/custom_text_form_field.dart';
 import '../../core/widgets/multi_text_button.dart';
 import '../../core/widgets/primary_button.dart';
@@ -20,6 +24,45 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
   final _passwordController = TextEditingController();
+  final _controller = SignUpController();
+
+  @override
+  void dispose() {
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.addListener(
+      () {
+        if (_controller.state is SignUpLoadingState) {
+          showDialog(
+            context: context,
+            builder: (context) => customCircularProgressIndicator(),
+          );
+        }
+        if (_controller.state is SignUpSuccessState) {
+          Navigator.pop(context);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Scaffold(
+                body: Center(
+                  child: Text('Nova tela'),
+                ),
+              ),
+            ),
+          );
+        }
+        if (_controller.state is SignUpErrorState) {
+          Navigator.pop(context);
+          customModalBottomSheet(context);
+        }
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +138,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 final valid = _formKey.currentState != null &&
                     _formKey.currentState!.validate();
                 if (valid) {
-                  log('continuar lógica de login');
+                  _controller.doSignUp();
                 } else {
                   log('erro ao logar');
                 }
