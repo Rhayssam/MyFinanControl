@@ -1,0 +1,1 @@
+{"flutter":{"platforms":{"android":{"default":{"projectId":"myfinanapp","appId":"1:381968815167:android:218b97021ba66a821b148a","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"myfinanapp","configurations":{"android":"1:381968815167:android:218b97021ba66a821b148a","ios":"1:381968815167:ios:7037ab0082b2c9471b148a"}}}}}}

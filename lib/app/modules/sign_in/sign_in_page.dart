@@ -5,8 +5,6 @@ import 'package:finan_control/app/core/utils/validator.dart';
 import 'package:finan_control/app/core/widgets/password_form_field.dart';
 import 'package:finan_control/app/modules/sign_in/sign_in_controller.dart';
 import 'package:finan_control/app/modules/sign_in/sign_in_state.dart';
-import 'package:finan_control/app/modules/sign_up/sign_up_controller.dart';
-import 'package:finan_control/app/services/mock_auth_service.dart';
 import 'package:finan_control/locator.dart';
 import 'package:flutter/material.dart';
 import '../../core/ui/text_styles.dart';
