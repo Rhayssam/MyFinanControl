@@ -1,12 +1,13 @@
 import 'dart:developer';
 
 import 'package:finan_control/app/core/constants/routes.dart';
-import 'package:finan_control/app/core/utils/uppercase_text_formatter.dart';
 import 'package:finan_control/app/core/utils/validator.dart';
 import 'package:finan_control/app/core/widgets/password_form_field.dart';
 import 'package:finan_control/app/modules/sign_in/sign_in_controller.dart';
 import 'package:finan_control/app/modules/sign_in/sign_in_state.dart';
+import 'package:finan_control/app/modules/sign_up/sign_up_controller.dart';
 import 'package:finan_control/app/services/mock_auth_service.dart';
+import 'package:finan_control/locator.dart';
 import 'package:flutter/material.dart';
 import '../../core/ui/text_styles.dart';
 import '../../core/ui/theme_config.dart';
@@ -27,7 +28,7 @@ class _SignInPageState extends State<SignInPage> {
   final _formKey = GlobalKey<FormState>();
   final _passwordController = TextEditingController();
   final _emailController = TextEditingController();
-  final _controller = SignInController(MockAuthService());
+  final _controller = locator.get<SignInController>();
 
   @override
   void dispose() {

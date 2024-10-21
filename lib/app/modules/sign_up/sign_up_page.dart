@@ -7,6 +7,7 @@ import 'package:finan_control/app/core/widgets/password_form_field.dart';
 import 'package:finan_control/app/modules/sign_up/sign_up_controller.dart';
 import 'package:finan_control/app/modules/sign_up/sign_up_state.dart';
 import 'package:finan_control/app/services/mock_auth_service.dart';
+import 'package:finan_control/locator.dart';
 import 'package:flutter/material.dart';
 import '../../core/ui/text_styles.dart';
 import '../../core/ui/theme_config.dart';
@@ -28,7 +29,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final _passwordController = TextEditingController();
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
-  final _controller = SignUpController(MockAuthService());
+  final _controller = locator.get<SignUpController>();
 
   @override
   void dispose() {
