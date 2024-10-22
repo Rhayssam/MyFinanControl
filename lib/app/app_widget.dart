@@ -1,4 +1,5 @@
 import 'package:finan_control/app/core/ui/theme_config.dart';
+import 'package:finan_control/app/modules/home/home_page.dart';
 import 'package:finan_control/app/modules/onboard/onboard_page.dart';
 import 'package:finan_control/app/modules/sign_up/sign_up_page.dart';
 import 'package:finan_control/app/modules/splash/splash_page.dart';
@@ -15,12 +16,13 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       title: 'MyFinanApp',
       theme: ThemeConfig.theme,
-      initialRoute: NamedRoutes.splash,
+      initialRoute: NamedRoute.splash,
       routes: {
-        NamedRoutes.initial: (context) => OnboardPage(),
-        NamedRoutes.splash: (context) => SplashPage(),
-        NamedRoutes.signUp: (context) => SignUpPage(),
-        NamedRoutes.signIn: (context) => SignInPage(),
+        NamedRoute.initial: (context) => OnboardPage(),
+        NamedRoute.splash: (context) => SplashPage(),
+        NamedRoute.signUp: (context) => SignUpPage(),
+        NamedRoute.signIn: (context) => SignInPage(),
+        NamedRoute.home: (context) => HomePage(),
       },
     );
   }

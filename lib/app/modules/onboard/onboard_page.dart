@@ -51,13 +51,13 @@ class OnboardPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(
                     context,
-                    NamedRoutes.signIn,
+                    NamedRoute.signIn,
                   );
                 },
               ),
             ),
             MultiTextButton(
-              onPressed: () => Navigator.pushNamed(context, NamedRoutes.signUp),
+              onPressed: () => Navigator.pushNamed(context, NamedRoute.signUp),
               children: [
                 Text(
                   'Ainda não possui uma conta? ',

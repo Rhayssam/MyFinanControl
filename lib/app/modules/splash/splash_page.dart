@@ -1,9 +1,12 @@
-import 'dart:async';
+import 'dart:developer';
 
 import 'package:finan_control/app/core/constants/routes.dart';
 import 'package:finan_control/app/core/ui/text_styles.dart';
 import 'package:finan_control/app/core/ui/theme_config.dart';
 import 'package:finan_control/app/core/widgets/custom_circular_progress_indicator.dart';
+import 'package:finan_control/app/modules/splash/splash_controller.dart';
+import 'package:finan_control/app/modules/splash/splash_state.dart';
+import 'package:finan_control/locator.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -14,21 +17,26 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
+  final _splashController = locator.get<SplashController>();
   @override
   void initState() {
     super.initState();
-    init();
+    _splashController.isUserLogged();
+    _splashController.addListener(() {
+      if (_splashController.state is SplashStateSuccess) {
+        Navigator.pushReplacementNamed(context, NamedRoute.home);
+        log('Navegar para a home');
+      } else {
+        Navigator.pushReplacementNamed(context, NamedRoute.initial);
+        log('Navegar para a onboarding');
+      }
+    });
   }
 
-  Timer init() {
-    return Timer(
-      Duration(seconds: 2),
-      navigateToOnboarding,
-    );
-  }
-
-  void navigateToOnboarding() {
-    Navigator.pushReplacementNamed(context, NamedRoutes.initial);
+  @override
+  void dispose() {
+    _splashController.dispose();
+    super.dispose();
   }
 
   @override

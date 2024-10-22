@@ -49,15 +49,9 @@ class _SignInPageState extends State<SignInPage> {
         }
         if (_controller.state is SignInStateSuccess) {
           Navigator.pop(context);
-          Navigator.push(
+          Navigator.pushReplacementNamed(
             context,
-            MaterialPageRoute(
-              builder: (context) => Scaffold(
-                body: Center(
-                  child: Text('Nova tela'),
-                ),
-              ),
-            ),
+            NamedRoute.home,
           );
         }
         if (_controller.state is SignInStateError) {
@@ -139,7 +133,7 @@ class _SignInPageState extends State<SignInPage> {
           ),
           MultiTextButton(
             onPressed: () =>
-                Navigator.popAndPushNamed(context, NamedRoutes.signUp),
+                Navigator.popAndPushNamed(context, NamedRoute.signUp),
             children: [
               Text(
                 'Não possui uma conta? ',
