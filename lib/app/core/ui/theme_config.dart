@@ -27,5 +27,11 @@ class ThemeConfig {
   static const Color greenOne = Color(0xFF63B5AF);
   static const Color greenTwo = Color(0xFF438883);
   static const Color green = Color(0xFF438883);
+  static const Color notification = Color(0xFFFFAB7B);
+  static const Color darkGreen = Color(0xFF2F7E79);
+  static const Color income = Color(0xFF25A969);
+  static const Color outcome = Color(0xFFF95B51);
+  static const Color antiFlashWhite = Color(0xFFF0F6F5);
+
   // static const Color grey = Color(0xFFAAAAAA);
 }

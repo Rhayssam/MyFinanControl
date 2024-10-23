@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:finan_control/app/core/constants/routes.dart';
+import 'package:finan_control/app/core/extensions/sizes.dart';
 import 'package:finan_control/app/core/ui/text_styles.dart';
 import 'package:finan_control/app/core/ui/theme_config.dart';
 import 'package:finan_control/app/core/widgets/custom_circular_progress_indicator.dart';
@@ -21,6 +22,8 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => Sizes.init(context));
+
     _splashController.isUserLogged();
     _splashController.addListener(() {
       if (_splashController.state is SplashStateSuccess) {
