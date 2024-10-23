@@ -26,4 +26,6 @@ class ThemeConfig {
   static const Color lightGrey = Color(0xFFC2C2C2);
   static const Color greenOne = Color(0xFF63B5AF);
   static const Color greenTwo = Color(0xFF438883);
+  static const Color green = Color(0xFF438883);
+  // static const Color grey = Color(0xFFAAAAAA);
 }

@@ -1,10 +1,12 @@
 import 'package:finan_control/app/core/ui/theme_config.dart';
-import 'package:finan_control/app/modules/home/home_page.dart';
+import 'package:finan_control/app/modules/home/home_page_view.dart';
 import 'package:finan_control/app/modules/onboard/onboard_page.dart';
+import 'package:finan_control/app/modules/profile/profile_page.dart';
 import 'package:finan_control/app/modules/sign_up/sign_up_page.dart';
 import 'package:finan_control/app/modules/splash/splash_page.dart';
+import 'package:finan_control/app/modules/stats/stats_page.dart';
+import 'package:finan_control/app/modules/wallet/wallet_page.dart';
 import 'package:flutter/material.dart';
-
 import 'core/constants/routes.dart';
 import 'modules/sign_in/sign_in_page.dart';
 
@@ -22,7 +24,10 @@ class AppWidget extends StatelessWidget {
         NamedRoute.splash: (context) => SplashPage(),
         NamedRoute.signUp: (context) => SignUpPage(),
         NamedRoute.signIn: (context) => SignInPage(),
-        NamedRoute.home: (context) => HomePage(),
+        NamedRoute.home: (context) => HomePageView(),
+        NamedRoute.stats: (context) => StatsPage(),
+        NamedRoute.wallet: (context) => WalletPage(),
+        NamedRoute.profile: (context) => ProfilePage(),
       },
     );
   }
