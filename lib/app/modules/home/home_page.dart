@@ -66,13 +66,13 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Good Afternoon, ',
+                          'Bom Dia, ',
                           textScaleFactor: textScaleFactor,
                           style: TextStyles.smallText
                               .apply(color: ThemeConfig.white),
                         ),
                         Text(
-                          'Enjelin Morgeana',
+                          'Rhayssam Hamze Vitti',
                           textScaleFactor: textScaleFactor,
                           style: TextStyles.mediumText20
                               .apply(color: ThemeConfig.white),
