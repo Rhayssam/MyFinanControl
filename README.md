@@ -1,16 +1,11 @@
 # finan_control
 
-A new Flutter project.
+Um projeto feito para fins de estudo da linguagem dart e o framework utilizado (flutter).
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## References
+- [GitHub - Rhayssam](https://github.com/rhayssam)
+- [Packages](https://pub.dev/)
+- [Documentação](https://docs.flutter.dev/)
+- [Firebase](https://firebase.google.com/?hl=pt-br)
+- [Hasura](https://console.hasura.io/welcome)
+- [Hasura-Firebase](https://hasura.io/blog/tagged/firebase)
