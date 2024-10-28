@@ -1,5 +1,9 @@
 import 'dart:developer';
 
+import 'package:finan_control/app/core/widgets/custom_circular_progress_indicator.dart';
+import 'package:finan_control/app/modules/home/home_controller.dart';
+import 'package:finan_control/app/modules/home/home_state.dart';
+import 'package:finan_control/locator.dart';
 import 'package:flutter/material.dart';
 
 import 'package:finan_control/app/core/extensions/sizes.dart';
@@ -18,6 +22,15 @@ class _HomePageState extends State<HomePage> {
       MediaQuery.of(context).size.width < 360 ? 0.7 : 1.0;
 
   double get iconsSize => MediaQuery.of(context).size.width < 360 ? 16.0 : 24.0;
+
+  final controller = locator.get<HomeController>();
+
+  @override
+  void initState() {
+    super.initState();
+    controller.getAllTransactions();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -258,41 +271,62 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Expanded(
-                    child: ListView.builder(
-                      physics: BouncingScrollPhysics(),
-                      padding: EdgeInsets.zero,
-                      itemCount: 4,
-                      itemBuilder: (context, index) {
-                        final color = index % 2 == 0
-                            ? ThemeConfig.income
-                            : ThemeConfig.outcome;
-                        final value =
-                            index % 2 == 0 ? '+ \$ 100.00' : '- \$ 100.00';
-                        return ListTile(
-                          contentPadding: EdgeInsets.symmetric(horizontal: 8.0),
-                          leading: Container(
-                            decoration: BoxDecoration(
-                              color: ThemeConfig.antiFlashWhite,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8.0)),
-                            ),
-                            padding: EdgeInsets.all(8.0),
-                            child: Icon(
-                              Icons.monetization_on_outlined,
-                            ),
-                          ),
-                          title: Text(
-                            'Upwork',
-                            style: TextStyles.mediumText16w500,
-                          ),
-                          subtitle: Text(
-                            '1969-07-20',
-                            style: TextStyles.smallText13,
-                          ),
-                          trailing: Text(
-                            value,
-                            style: TextStyles.mediumText18.apply(color: color),
-                          ),
+                    child: AnimatedBuilder(
+                      animation: controller,
+                      builder: (context, _) {
+                        if (controller.state is HomeStateLoading)
+                          return customCircularProgressIndicator(
+                            color: ThemeConfig.green,
+                          );
+                        if (controller.state is HomeStateError)
+                          return Center(
+                            child: Text('Ocorreu um erro.'),
+                          );
+                        if (controller.transactions.isEmpty)
+                          return Center(
+                            child: Text('Você ainda não possui transações.'),
+                          );
+                        return ListView.builder(
+                          physics: BouncingScrollPhysics(),
+                          padding: EdgeInsets.zero,
+                          itemCount: controller.transactions.length,
+                          itemBuilder: (context, index) {
+                            final item = controller.transactions[index];
+
+                            final color = item.value.isNegative
+                                ? ThemeConfig.outcome
+                                : ThemeConfig.income;
+                            final value = '\$ ${item.value.toStringAsFixed(2)}';
+                            return ListTile(
+                              contentPadding:
+                                  EdgeInsets.symmetric(horizontal: 8.0),
+                              leading: Container(
+                                decoration: BoxDecoration(
+                                  color: ThemeConfig.antiFlashWhite,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8.0)),
+                                ),
+                                padding: EdgeInsets.all(8.0),
+                                child: Icon(
+                                  Icons.monetization_on_outlined,
+                                ),
+                              ),
+                              title: Text(
+                                item.title,
+                                style: TextStyles.mediumText16w500,
+                              ),
+                              subtitle: Text(
+                                DateTime.fromMillisecondsSinceEpoch(item.date)
+                                    .toString(),
+                                style: TextStyles.smallText13,
+                              ),
+                              trailing: Text(
+                                value,
+                                style:
+                                    TextStyles.mediumText18.apply(color: color),
+                              ),
+                            );
+                          },
                         );
                       },
                     ),
