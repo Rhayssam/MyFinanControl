@@ -17,13 +17,18 @@ class TransactionRepositoryImpl implements TransactionRepository {
 
     return [
       TransactionModel(
-        title: 'Salary',
+        title: 'Salario',
         value: 500,
         date: DateTime.now().millisecondsSinceEpoch,
       ),
       TransactionModel(
-        title: 'Dinner',
-        value: -50,
+        title: 'Almoço',
+        value: -25,
+        date: DateTime.now().subtract(Duration(days: 7)).millisecondsSinceEpoch,
+      ),
+      TransactionModel(
+        title: 'Ração Anúbis',
+        value: -100,
         date: DateTime.now().subtract(Duration(days: 7)).millisecondsSinceEpoch,
       ),
     ];
