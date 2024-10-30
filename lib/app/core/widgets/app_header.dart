@@ -66,6 +66,14 @@ class _AppHeaderState extends State<AppHeader> {
           right: 0,
           child: Container(
             decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3),
+                  spreadRadius: 2,
+                  blurRadius: 5,
+                  offset: Offset(2, 2),
+                ),
+              ],
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,

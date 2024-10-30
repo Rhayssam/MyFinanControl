@@ -18,7 +18,7 @@ class TransactionRepositoryImpl implements TransactionRepository {
     return [
       TransactionModel(
         title: 'Salario',
-        value: 500,
+        value: 1000,
         date: DateTime.now().millisecondsSinceEpoch,
       ),
       TransactionModel(
@@ -27,8 +27,23 @@ class TransactionRepositoryImpl implements TransactionRepository {
         date: DateTime.now().subtract(Duration(days: 7)).millisecondsSinceEpoch,
       ),
       TransactionModel(
-        title: 'Ração Anúbis',
+        title: 'Exemplo1',
         value: -100,
+        date: DateTime.now().subtract(Duration(days: 7)).millisecondsSinceEpoch,
+      ),
+      TransactionModel(
+        title: 'Exemplo2',
+        value: -20,
+        date: DateTime.now().subtract(Duration(days: 7)).millisecondsSinceEpoch,
+      ),
+      TransactionModel(
+        title: 'Exemplo3',
+        value: -80,
+        date: DateTime.now().subtract(Duration(days: 7)).millisecondsSinceEpoch,
+      ),
+      TransactionModel(
+        title: 'Exemplo4',
+        value: 300,
         date: DateTime.now().subtract(Duration(days: 7)).millisecondsSinceEpoch,
       ),
     ];

@@ -32,6 +32,7 @@ class ThemeConfig {
   static const Color income = Color(0xFF25A969);
   static const Color outcome = Color(0xFFF95B51);
   static const Color antiFlashWhite = Color(0xFFF0F6F5);
+  static const Color black = Color(0xFF000000);
 
   // static const Color grey = Color(0xFFAAAAAA);
 }
